@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans" class="ua-windows ua-webkit">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="renderer" content="webkit">
+    <meta name="referrer" content="always">
+    <title>豆瓣租房 · 改</title>
+    
+    
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="Sun, 6 Mar 2005 01:00:00 GMT">
+    
+  <link rel="search" type="application/opensearchdescription+xml"
+   title="豆瓣小组" href="https://www.douban.com/group/opensearch">
+
+    <script >var _head_start = new Date();</script>
+    <script src="https://img3.doubanio.com/f/shire/72ced6df41d4d158420cebdd254f9562942464e3/js/jquery.min.js"></script>
+    <script src="https://img3.doubanio.com/f/shire/40e5fd47dadd542654d9421d954f5296266c2e25/js/douban.js"></script>
+    <link href="https://img3.doubanio.com/f/shire/bf61b1fa02f564a4a8f809da7c7179b883a56146/css/douban.css" rel="stylesheet" type="text/css">
+    <style type="text/css">
+    
+        
+    </style>
+    
+    <link rel="stylesheet" href="https://img3.doubanio.com/misc/mixed_static/3abd22fc6cb624b6.css">
+    <script></script>
+
+    <link rel="stylesheet" href="https://img3.doubanio.com/f/group/2f4c6f83940e2bbb76f5a23a7d987b9093919799/css/group/init.css">
+
+    <link rel="shortcut icon" href="https://img3.doubanio.com/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+
+<div id="db-nav-group" class="nav">
+  <div class="nav-wrap">
+  <div class="nav-primary clearfix">
+    <div class="nav-logo">
+      <a href="https://www.douban.com/group/">豆瓣租房(改)</a>
+    </div>
+
+    <div class="nav-items">
+    <ul>
+        
+        <li class="nav-item-first"><a href="https://www.douban.com/group/">我的小组</a></li>
+      <li><a href="https://www.douban.com/group/explore">精选</a></li>
+      <li><a href="https://www.douban.com/group/explore/culture">文化</a></li>
+      <li><a href="https://www.douban.com/group/explore/travel">行摄</a></li>
+      <li><a href="https://www.douban.com/group/explore/ent">娱乐</a></li>
+      <li><a href="https://www.douban.com/group/explore/fashion">时尚</a></li>
+      <li><a href="https://www.douban.com/group/explore/life">生活</a></li>
+      <li><a href="https://www.douban.com/group/explore/tech">科技</a></li>
+   </ul>
+   </div>
+
+    <div class="nav-search">
+      <form id='form' action="https://www.douban.com/group/search" method="get">
+        <fieldset>
+          <legend>搜索：</legend>
+          
+          <input type="hidden" name="cat" value="1013" />
+          <label for="inp-query">小组、话题</label>
+          <div class="inp"><input id="inp-query" name="q" size="22" maxlength="60" value= {{kw}}></div>
+          <input type="hidden" name="sort" value="time" />
+          <div class="inp-btn"><input type="" value="搜索"></div>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+  </div>
+
+</div>
+
+<script>
+Do(function(){
+  var nav = $('#db-nav-group');
+  var inp=$("#inp-query"),label=inp.closest(".nav-search").find("label");"placeholder"in inp[0]?(label.hide(),inp.attr("placeholder",label.text())):(""!==inp.val()&&label.hide(),inp.parent().click(function(){inp.focus(),label.hide()}).end().focusin(function(){label.hide()}).focusout(function(){""===$.trim(this.value)?label.show():label.hide()}).keydown(function(){label.hide()})),inp.parents("form").submit(function(){if(!$.trim(inp.val()).length)return!1}),nav.find(".lnk-more, .lnk-account").click(function(n){n.preventDefault();var i,e=$(this),t=e.hasClass("lnk-more")?$("#db-productions"):$("#db-usr-setting");t.data("init")||(i=e.offset(),t.css({"margin-left":i.left-$(window).width()/2-t.width()+e.width()+parseInt(e.css("padding-right"),10)+"px",left:"50%",top:i.top+e.height()+"px"}),t.data("init",1),t.hide(),$("body").click(function(n){var i=$(n.target);i.hasClass("lnk-more")||i.hasClass("lnk-account")||i.closest("#db-usr-setting").length||i.closest("#db-productions").length||t.hide()})),"none"===t.css("display")?($(".dropdown").hide(),t.show()):$(".dropdown").hide()});
+
+});
+</script>
+
+
+
+
+    <div id="wrapper">
+        
+
+        
+<div id="content">
+    
+    <h1><div>
+   豆瓣租房·改~
+  </div></h1>
+
+    <div class="grid-16-8 clearfix">
+        
+        
+<div class="article">
+               
+
+
+
+
+
+<div class="srh-filter">
+  <ul>
+     by KenLee@2018
+  </ul>
+</div>
+
+<div class="srh-tabs">
+  <ul>
+  {% if sim %}
+  <li>反对重复主题：<input id="isSimiliar" type="checkbox" checked="checked"/></li>
+  {% else %}
+  <li>反对重复主题：<input id="isSimiliar" type="checkbox"/></li>
+  {% end %}
+  <li> &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</li>
+  {% if sex %}
+  <li>反对性别歧视：<input id="isSex" type="checkbox" checked="checked"/></li>
+  {% else %}
+  <li>反对性别歧视：<input id="isSex" type="checkbox"/></li>
+  {% end %}
+  <li> &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</li>
+  <li>
+   新鲜度：
+  <select id = "days">
+  {% if not days == 1 %}
+  <option value ="1">一天内</option>
+  {% else %}
+  <option value ="1" selected="selected" >一天内</option>
+  {% end %}
+
+  {% if not days == 3 %}
+  <option value ="3">三天内</option>
+  {% else %}
+  <option value ="3" selected="selected" >三天内</option>
+  {% end %}
+
+  {% if not days == 7 %}
+  <option value="7">一周内</option>
+  {% else %}
+  <option value="7" selected="selected">一周内</option>
+  {% end %}
+  {% if not days == 30 %}
+  <option value="30">一月内</option>
+  {% else %}
+  <option value="30" selected="selected">一月内</option>
+  {% end %}
+  </select>
+  </li>
+  </ul>
+</div>
+
+
+
+
+        
+<div class="topics">
+<table class="olt">
+<tbody>
+                        
+<!-- 数据开始 -->
+
+{% raw page %}
+</tr>
+
+<!-- 数据结束 -->
+
+</tbody>
+</table>
+</div>
+        <div class="paginator">
+            <span class="count">(共 {{ num }}个结果, 已剔除 {{ exclude_num }} 个垃圾结果)</span>
+        </div>
+
+
+
+        </div>
+        <div class="aside">
+                
+<!-- douban ad begin -->
+<div id="dale_group_search_top_right"></div>
+<!-- douban ad end -->
+
+
+  <div class="search_report">
+    <a href="javascript:;" id="search-report-btn">&gt; 对结果不满意？不满意就不满意吧</a>
+  </div>
+  <iframe frameborder="0" id="feedback-iframe"></iframe>
+  
+  <script type="text/javascript">
+    Do(function () {
+      $('#search-report-btn').click(function () {
+        alert("有本事去告我啊！")
+      })
+       $('.inp-btn').click(function () {
+        kw = $('#inp-query')[0].value
+        isSex = Number($('#isSex')[0].checked)
+        isSimiliar =  Number($('#isSimiliar')[0].checked)
+        days = Number($('#days')[0].value)
+
+        window.location.href="/?kw="+kw+"&days="+days.toString()+"&sex="+isSex.toString()+"&sim="+isSimiliar.toString();
+      })
+      window.addEventListener('message', function (event) {
+        var origin = event.origin || event.originalEvent.origin;
+        if (!origin.match(/^https?:\/\/[a-z0-9-.]+\.douban\.com(?:\/|:|$)/)) {
+          // 非法域名
+          window.console && console.warn && console.warn('window receive message from illegal origin: ', origin, event)
+          return
+        }
+        if (typeof event.data !== 'string') {
+          return
+        }
+        var data = JSON.parse(event.data)
+        if (data.type === 'FEEDBACK_POPUP_CLOSE') {
+          $('#feedback-iframe').hide()
+        }
+      })
+    });
+  </script>
+
+
+
+        </div>
+        <div class="extra">
+            
+        </div>
+    </div>
+</div>
+
+        
+<div id="footer">
+    
+<span id="icp" class="fleft gray-link">
+    &copy; 2005－2018 KenLee, all rights reserved KenLee
+</span>
+
+<a href="https://www.douban.com/hnypt/variformcyst.py" style="display: none;"></a>
+
+<span class="fright">
+    <a href="https://www.douban.com/about">关于豆瓣</a>
+    · <a href="https://www.douban.com/jobs">在豆瓣工作</a>
+    · <a href="https://www.douban.com/about?topic=contactus">联系我们</a>
+    · <a href="https://www.douban.com/about?policy=disclaimer">免责声明</a>
+    
+    · <a href="https://help.douban.com/group" target="_blank">帮助中心</a>
+    · <a href="https://www.douban.com/doubanapp/">移动应用</a>
+    · <a href="https://www.douban.com/partner/">豆瓣广告</a>
+</span>
+
+</div>
+
+    </div>
+    
+    
+
+    <!-- COLLECTED JS -->
+    
+<!-- douban ad begin -->
+
+
+
+
+
+    
+<script type="text/javascript">
+    (function (global) {
+        var newNode = global.document.createElement('script'),
+            existingNode = global.document.getElementsByTagName('script')[0],
+            adSource = '//erebor.douban.com/',
+            userId = '170525557',
+            browserId = 'Tsc9t9HvvAU',
+            criteria = '3:/group/search?start=200&amp;cat=1013&amp;sort=time&amp;q=%E6%BD%AD%E6%9D%91',
+            preview = '',
+            debug = false,
+            adSlots = ['dale_group_search_top_right'];
+
+        global.DoubanAdRequest = {src: adSource, uid: userId, bid: browserId, crtr: criteria, prv: preview, debug: debug};
+        global.DoubanAdSlots = (global.DoubanAdSlots || []).concat(adSlots);
+
+        newNode.setAttribute('type', 'text/javascript');
+        newNode.setAttribute('src', 'https://img3.doubanio.com/f/adjs/cdc904d1376a43e44bbf399a0aff51973016cd77/ad.release.js');
+        newNode.setAttribute('async', true);
+        existingNode.parentNode.insertBefore(newNode, existingNode);
+    })(this);
+</script>
+
+
+
+
+
+
+
+
+
+
+<!-- douban ad end -->
+
+    
+    
+
+
+
+
+
+
+
+
+
+<!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-5WP579" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-5WP579');</script>
+<!-- End Google Tag Manager -->
+
+
+<script type="text/javascript">
+var _paq = _paq || [];
+_paq.push(['trackPageView']);
+_paq.push(['enableLinkTracking']);
+(function() {
+    var p=(('https:' == document.location.protocol) ? 'https' : 'http'), u=p+'://fundin.douban.com/';
+    _paq.push(['setTrackerUrl', u+'piwik']);
+    _paq.push(['setSiteId', '100001']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript';
+    g.defer=true;
+    g.async=true;
+    g.src=p+'://img3.doubanio.com/dae/fundin/piwik.js';
+    s.parentNode.insertBefore(g,s);
+})();
+</script>
+
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-7019765-1']);
+_gaq.push(['_setCampNameKey', 'dcn']);
+_gaq.push(['_setCampSourceKey', 'dcs']);
+_gaq.push(['_setCampMediumKey', 'dcm']);
+_gaq.push(['_setCampTermKey', 'dct']);
+_gaq.push(['_setCampContentKey', 'dcc']);
+_gaq.push(['_addOrganic', 'baidu', 'word']);
+_gaq.push(['_addOrganic', 'soso', 'w']);
+_gaq.push(['_addOrganic', '3721', 'name']);
+_gaq.push(['_addOrganic', 'youdao', 'q']);
+_gaq.push(['_addOrganic', 'so.360.cn', 'q']);
+_gaq.push(['_addOrganic', 'vnet', 'kw']);
+_gaq.push(['_addOrganic', 'sogou', 'query']);
+_gaq.push(['_addIgnoredOrganic', '豆瓣']);
+_gaq.push(['_addIgnoredOrganic', 'douban']);
+_gaq.push(['_addIgnoredOrganic', '豆瓣网']);
+_gaq.push(['_addIgnoredOrganic', 'www.douban.com']);
+_gaq.push(['_setDomainName', '.douban.com']);
+
+
+    _gaq.push(['_setCustomVar', 1, 'responsive_view_mode', 'desktop', 3]);
+
+_gaq.push(['_trackPageview']);
+_gaq.push(['_trackPageLoadTime']);
+    _gaq.push(['_setVar', '17052']);
+
+window._ga_init = function() {
+    var ga = document.createElement('script');
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    ga.setAttribute('async', 'true');
+    document.documentElement.firstChild.appendChild(ga);
+};
+if (window.addEventListener) {
+    window.addEventListener('load', _ga_init, false);
+} else {
+    window.attachEvent('onload', _ga_init);
+}
+</script>
+
+
+
+
+
+    <!-- brand4-docker-->
+
+
+  <script>_SPLITTEST=''</script>
+</body>
+
+</html>
+
+
