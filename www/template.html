@@ -199,8 +199,8 @@ Do(function(){
         isSex = Number($('#isSex')[0].checked)
         isSimiliar =  Number($('#isSimiliar')[0].checked)
         days = Number($('#days')[0].value)
-
-        window.location.href="/?kw="+kw+"&days="+days.toString()+"&sex="+isSex.toString()+"&sim="+isSimiliar.toString();
+        url = encodeURI("/?kw="+kw+"&days="+days.toString()+"&sex="+isSex.toString()+"&sim="+isSimiliar.toString())
+        window.location.href=url
       })
       window.addEventListener('message', function (event) {
         var origin = event.origin || event.originalEvent.origin;

@@ -9,6 +9,7 @@ from concurrent.futures import ThreadPoolExecutor
 
 import os.path
 import os
+import urllib2
 
 import DoubanSpider
 
@@ -18,20 +19,22 @@ settings={
 	"debug":True,
 }
 
-# 8122 for debug | 8123 for release
-port = 8123
+
+port = 8081
 
 # 
 class MainHandler(tornado.web.RequestHandler):
 	def get(self):
 		#
-		kw = "潭村"
+		kw = "OvO"
 		days_til_now = 3
 		exclude_similar = True
 		exclude_girl_only = True
 		#
 		if self.request.arguments.has_key("kw"):
 			kw = self.get_argument('kw')
+			print(kw)
+			kw = urllib2.unquote(kw)
 		if self.request.arguments.has_key("days"):
 			days_til_now = int(self.get_argument('days'))
 		if self.request.arguments.has_key("sim"):
@@ -42,7 +45,7 @@ class MainHandler(tornado.web.RequestHandler):
 		res = DoubanSpider.GrapResult(kw, days_til_now, exclude_similar, exclude_girl_only)
 		#
 		page = ""
-		if(res[0][0] != "Error"):
+		if(res[1] != -1):
 			for tile in res[0]:
 				page = page + "\n" + tile.prettify()
 		#

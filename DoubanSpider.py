@@ -19,19 +19,18 @@ def GrapResult(searchKeyword, daysTilNow, useSimilarity, useSex):
 	index = 0
 	flag = True
 	#
-	headers = {'User-Agent':'Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US; rv:1.9.1.6) Gecko/20091201 Firefox/3.5.6'}
+	headers = {'User-Agent': 'Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)','Referer': 'http://www.zhihu.com/articles'}
 	#
 	while flag and index < 1000:
 		#
-		url = "https://www.douban.com/group/search?start=" + str(index) + "&cat=1013&sort=time&q=" + searchKeyword
+		url = "https://www.douban.com/group/search?start=" + str(index) + "&cat=1013&sort=time&q=" + searchKeyword.encode("UTF-8")
 		print("[Spider] URL = " + url)
 		try:
-			print(headers)
 			req = urllib2.Request(url = url, headers = headers)  
 			page = urllib2.urlopen(req).read()
 		except Exception as e:
 			print(e)
-			return (["Error"], 0)
+			return (["Error"], -1)
 		soup = BeautifulSoup(page)
 		trs = soup.findAll("tr", attrs = {'class':['pl']})
 		# 
@@ -65,7 +64,7 @@ def GrapResult(searchKeyword, daysTilNow, useSimilarity, useSex):
 				if useSex:
 					fits = False
 					for kw in sexKeywords:
-						if kw in trueTitle:
+						if kw.decode("UTF-8") in trueTitle:
 							fits = True
 							break
 					if fits:
